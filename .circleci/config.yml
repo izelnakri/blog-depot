@@ -40,7 +40,9 @@ jobs:
       # TODO: at a later point I might store the test results here
   deploy-docker-image:
     docker:
-      - image: alpine
+      # dind -> Docker in Docker
+      # Necessary for building and pushing images
+      - image: docker:stable-dind
     steps:
       - checkout
       - run:
