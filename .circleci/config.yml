@@ -38,6 +38,18 @@ jobs:
           name: run unit tests
           command: npm run unit
       # TODO: at a later point I might store the test results here
+  deploy-docker-image:
+    steps:
+      - checkout
+      - run:
+          name: docker login
+          command: docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - run:
+          name: docker build image
+          command: docker build -t thomaskleinendorst/blog-depot:latest .
+      - run:
+          name: push docker image to registry
+          command: docker push thomaskleinendorst/blog-depot:latest
 
 workflows:
   version: 2
