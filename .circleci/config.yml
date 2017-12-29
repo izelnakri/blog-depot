@@ -39,6 +39,8 @@ jobs:
           command: npm run unit
       # TODO: at a later point I might store the test results here
   deploy-docker-image:
+    docker:
+      - image: alpine
     steps:
       - checkout
       - run:
