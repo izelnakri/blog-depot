@@ -64,3 +64,6 @@ workflows:
       - unit:
           requires:
             - build
+      - deploy-docker-image:
+          requires:
+            - unit
