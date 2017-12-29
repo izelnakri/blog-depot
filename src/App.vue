@@ -10,10 +10,4 @@ export default {
 };
 </script>
 
-<style>
-  html, body, #app {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-  }
-</style>
+<style src="./styles/style.scss" lang="scss"></style>
