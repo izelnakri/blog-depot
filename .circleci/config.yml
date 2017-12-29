@@ -40,7 +40,7 @@ jobs:
       # TODO: at a later point I might store the test results here
   deploy-docker-image:
     docker:
-      - image: alpine
+      - image: docker:stable
     steps:
       - checkout
       - setup_remote_docker
