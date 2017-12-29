@@ -40,11 +40,10 @@ jobs:
       # TODO: at a later point I might store the test results here
   deploy-docker-image:
     docker:
-      # dind -> Docker in Docker
-      # Necessary for building and pushing images
-      - image: docker:stable-dind
+      - image: alpine
     steps:
       - checkout
+      - setup_remote_docker
       - run:
           name: docker login
           command: docker login -u $DOCKER_USER -p $DOCKER_PASS
