@@ -38,17 +38,6 @@ jobs:
           name: run unit tests
           command: npm run unit
       # TODO: at a later point I might store the test results here
-  e2e:
-    docker:
-      - image: node:9.3.0
-    steps:
-      - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run:
-          name: run end to end tests
-          command: npm run e2e
-      # TODO: at a later point I might store the test results here
 
 workflows:
   version: 2
@@ -59,8 +48,5 @@ workflows:
           requires:
             - npm-dependancies
       - unit:
-          requires:
-            - build
-      - e2e:
           requires:
             - build
