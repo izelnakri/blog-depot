@@ -1,0 +1,19 @@
+version: 2
+jobs:
+  npm-dependancies:
+    docker:
+      - image: node:9.3.0-alpine
+    steps:
+      - checkout
+      - run:
+          name: update-npm-itself
+          command: 'sudo npm install -g npm@latest'
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install-npm-dependancies
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+            paths:
+              - ./node_modules
