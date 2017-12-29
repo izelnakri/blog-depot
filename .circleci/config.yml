@@ -42,7 +42,7 @@ jobs:
           name: run unit tests
           command: npm run unit
       # TODO: at a later point I might store the test results here
-  deploy-docker-image:
+  upload-docker-image:
     docker:
       - image: docker:stable
     steps:
@@ -70,7 +70,8 @@ workflows:
             - npm-dependancies
       - unit:
           requires:
-            - build
-      - deploy-docker-image:
+            - npm-dependancies
+      - upload-docker-image:
           requires:
             - unit
+            - build
