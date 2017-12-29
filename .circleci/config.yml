@@ -35,7 +35,7 @@ jobs:
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
-          name: install dependancies
+          name: run unit tests
           command: npm run unit
       # TODO: at a later point I might store the test results here
   e2e:
@@ -46,7 +46,7 @@ jobs:
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
-          name: install dependancies
+          name: run end to end tests
           command: npm run e2e
       # TODO: at a later point I might store the test results here
 
