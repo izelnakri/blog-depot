@@ -16,3 +16,7 @@ selenium-debug.log
 *.ntvs*
 *.njsproj
 *.sln
+
+# Ignore Docker compose files
+/docker/**/**
+!/docker/**/docker-compose.yml
