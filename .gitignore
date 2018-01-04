@@ -18,5 +18,5 @@ selenium-debug.log
 *.sln
 
 # Ignore Docker compose files
-/docker/**/**
-!/docker/**/docker-compose.yml
+/docker/*/**
+!/docker/*/docker-compose.yml
