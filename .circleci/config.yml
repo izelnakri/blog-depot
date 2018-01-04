@@ -57,6 +57,9 @@ jobs:
           name: docker build image
           command: docker build -t thomaskleinendorst/blog-depot:latest .
       - run:
+          name: docker tag image
+          command: docker tag thomaskleinendorst/blog-depot:latest thomaskleinendorst/blog-depot:$CIRCLE_BRANCH
+      - run:
           name: push docker image to registry
           command: docker push thomaskleinendorst/blog-depot:latest
 
