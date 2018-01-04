@@ -61,7 +61,7 @@ jobs:
           command: docker tag thomaskleinendorst/blog-depot:latest thomaskleinendorst/blog-depot:$CIRCLE_BRANCH
       - run:
           name: push docker image to registry
-          command: docker push thomaskleinendorst/blog-depot:latest
+          command: docker push thomaskleinendorst/blog-depot
 
 workflows:
   version: 2
