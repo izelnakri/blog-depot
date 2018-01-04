@@ -3,5 +3,5 @@ services:
   front-end:
     image: thomaskleinendorst/blog-depot:latest
     ports:
-      - "8773:3000"
+      - "3000"
     restart: on-failure
