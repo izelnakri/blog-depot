@@ -1,12 +1,12 @@
 version: "3"
 services:
   front-end-master:
-    image: thomaskleinendorst/blog-depot:master
+    image: index.docker.io/thomaskleinendorst/blog-depot:master
     ports:
       - "32768:3000"
     restart: on-failure
   front-end-develop:
-    image: thomaskleinendorst/blog-depot:develop
+    image: index.docker.io/thomaskleinendorst/blog-depot:develop
     ports:
       - "32769:3000"
     restart: on-failure
@@ -16,3 +16,4 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /home/thomas/.docker/config.json:/config.json
     command: --cleanup
+    restart: on-failure
