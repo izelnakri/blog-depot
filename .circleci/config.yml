@@ -43,10 +43,6 @@ jobs:
           command: npm run unit
       # TODO: at a later point I might store the test results here
   upload-docker-image:
-    branches:
-      only:
-        - master
-        - develop
     docker:
       - image: docker:stable
     steps:
@@ -79,6 +75,11 @@ workflows:
           requires:
             - npm-dependancies
       - upload-docker-image:
+          filters:
+          branches:
+            only:
+              - master
+              - develop
           requires:
             - unit
             - build
