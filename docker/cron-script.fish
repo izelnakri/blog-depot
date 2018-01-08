@@ -4,8 +4,8 @@
 # the running Docker containers
 # This script should be run daily in crontab
 
-set WORKING_DIRECTORY /tmp/update-docker-compose-task
-set GIT_BRANCH feature-docker-compose
+set GIT_BRANCH $argv[1]
+set WORKING_DIRECTORY /tmp/update-$GIT_BRANCH
 
 echo "creating tmp working directory at $WORKING_DIRECTORY"
 mkdir $WORKING_DIRECTORY
@@ -17,8 +17,7 @@ cd blog-depot/
 git checkout -b $GIT_BRANCH --track remotes/origin/$GIT_BRANCH
 
 echo "run docker-compose pull & docker-compose up"
-# cd docker/$GIT_BRANCH
-cd docker/master
+cd docker/$GIT_BRANCH
 docker-compose pull & docker-compose up -d
 
 echo "removing tmp working directory at $WORKING_DIRECTORY"

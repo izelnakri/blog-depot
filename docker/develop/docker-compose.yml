@@ -1,7 +1,7 @@
 version: "3"
 services:
   front-end:
-    image: thomaskleinendorst/blog-depot:master
+    image: thomaskleinendorst/blog-depot:develop
     ports:
-      - "32768:3000"
+      - "32769:3000"
     restart: on-failure
