@@ -1,0 +1,6 @@
+# By default the whole project is send to the Docker Deamon
+# These rules exempt them, and makes building images way faster.
+# For now I included only the biggest folders, but in practice all but
+# the main.js and dist folder could be added.
+.git
+node_modules
