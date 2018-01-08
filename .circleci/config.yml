@@ -76,10 +76,10 @@ workflows:
             - npm-dependancies
       - upload-docker-image:
           filters:
-          branches:
-            only:
-              - master
-              - develop
+            branches:
+              only:
+                - master
+                - develop
           requires:
             - unit
             - build
